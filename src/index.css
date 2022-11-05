@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.textArea{
+  resize: none;
+}
+
+.bg-at{ 
+  background: rgba(108, 183, 245, 0.288);
+}
+
+.img-tamaño{
+  width: 100px;
+}
+
+.true{
+  background: red;
+}
+.false{
+  background: green;
+}
+.boton-game-theme1{
+  background: #000;
+  color: white;
+}
+.boton-game-theme2{
+  background: rgb(192, 191, 191);
+  color: white;
+}
+.boton-game-players1{
+  background: #000;
+  color: white;
+}
+.boton-game-players2{
+  background: rgb(192, 191, 191);
+  color: white;
+}
+
+.boton-start{
+  background: rgb(243, 154, 20);
+  color: white;
+}
+.font-size{
+  font-size: 200%;
+}
+.invisible{
+  display: none;
+  position: absolute;
+  z-index: 3;
+}
+.boton-activo{
+  background: rgb(255, 185, 21);
+  color: black;
+}
+.boton-inactivo{
+  background: rgb(176, 172, 165);
+  color: rgba(176, 172, 165, 0);
+}
+.boton-ganado{
+  background: white;
+  color: black;
+}
+.indice-z{
+  z-index: 1;
+}
+.gridd{
+  margin: 3px;
+}
+
+
+
+@media (max-width:800px) {
+  .font-size{
+    font-size: 150%;
+  }  
+}
+@media (max-width:500px) {
+  .font-size{
+    font-size: 100%;
+  }  
+  .gridd{
+    width: 100px;
+  }
+}
