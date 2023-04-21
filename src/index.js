@@ -18,7 +18,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<App />} >
+        <Route path='/' element={<Juego/>} >
           <Route index element={<Inicio/>} />
           <Route path='notificaciones' element={<Notificaciones/>} />
           <Route path='generador' element={<Generador/>} />

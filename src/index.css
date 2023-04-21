@@ -6,6 +6,65 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.fondo-botones{
+  background-image: url("https://images.yodibujo.es/_uploads/wallpaper/18182_capture.jpg");
+  background-size: cover;
+}
+.fondo-nav{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0;
+  background-origin: content-box;
+}
+.fondo-titulo{
+  background-image: url("https://www.gratistodo.com/wp-content/uploads/2016/07/pokemon-wallpapers-22.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.fondo-menu-principal{
+  margin-bottom: 150%;
+  background-image: url("https://fondosmil.com/fondo/14740.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color:white;
+}
+.fondo-multijugador{
+  margin-bottom: 150%;
+  background-image: url("https://w0.peakpx.com/wallpaper/841/444/HD-wallpaper-pokemon-10.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.fondo-ranking{
+  margin-bottom: 150%;
+  background-image: url("https://assets.pokemon.com/assets//cms2-es-es/img/video-games/_downloads/go/team-instinct-750x1333-es.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.fondo-player{
+  margin-bottom: 150%;
+  padding: 0;
+  background-origin: content-box;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+.fondo-boton{
+  user-select: none;
+  padding: 0;
+  background-origin: content-box;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgb(255, 255, 255);
+  
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -35,20 +94,20 @@ code {
   color: white;
 }
 .boton-game-theme2{
-  background: rgb(192, 191, 191);
-  color: white;
+  background-color: rgba(192, 191, 191, 0.93);
+  color: rgb(4, 4, 4);
 }
 .boton-game-players1{
   background: #000;
   color: white;
 }
 .boton-game-players2{
-  background: rgb(192, 191, 191);
+  background-color: rgba(192, 191, 191, 0.583);
   color: white;
 }
 
 .boton-start{
-  background: rgb(243, 154, 20);
+  background-color: rgba(243, 154, 20, 0.92);
   color: white;
 }
 .font-size{
@@ -60,16 +119,55 @@ code {
   z-index: 3;
 }
 .boton-activo{
-  background: rgb(255, 185, 21);
-  color: black;
+  padding: 30%;
+  background-origin: content-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: rgb(250, 250, 250);
 }
+
+.boton-activo-numero{
+  padding: 0;
+  background-origin: content-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://www.pngitem.com/pimgs/m/107-1075267_open-pokeball-png-pokemon-ball-open-png-transparent.png");  
+  color: rgb(250, 250, 250);
+}
+
 .boton-inactivo{
-  background: rgb(176, 172, 165);
+  padding: 0;
+  background-origin: content-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://imagenpng.com/wp-content/uploads/2016/09/Pokebola-pokeball-png-1.png");
   color: rgba(176, 172, 165, 0);
 }
+
+.boton-inactivo-numero{
+  padding: 0;
+  background-origin: content-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://imagenpng.com/wp-content/uploads/2016/09/Pokebola-pokeball-png-1.png");
+  color: rgba(176, 172, 165, 0);
+}
+
 .boton-ganado{
-  background: white;
-  color: black;
+  background-position: center;
+  background-size: cover;
+  background-image: url("https://www.pngitem.com/pimgs/m/107-1075267_open-pokeball-png-pokemon-ball-open-png-transparent.png"); 
+  color: rgba(255, 253, 253, 0);
+}
+.boton-ganado-numero{
+  background-position: center;
+  background-size: cover;
+  background-image: url("https://www.pngitem.com/pimgs/m/107-1075267_open-pokeball-png-pokemon-ball-open-png-transparent.png");  
+  color: rgba(250, 250, 250, 0);
 }
 .indice-z{
   z-index: 1;

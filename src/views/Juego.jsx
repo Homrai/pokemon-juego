@@ -514,16 +514,16 @@ const handleNombre=(e)=>{
 }
 
 return (
-  <>
-  <div className="d-flex justify-content-between">
-  <button className="btn btn-outline-dark my-5" onClick={menuPrincipal} to="menu">Menu Principal</button>
-  <button className="btn btn-outline-dark my-5" onClick={()=>setVentana(6)} to="menu">Tutorial</button>
-  <button className="btn btn-outline-dark my-5" onClick={mostrarRanking} to="menu">Ranking</button>
-  </div>
-      <div className="d-flex justify-content-center align-items-center bg-black flex-column flex">
-          <div className="d-flex justify-content-center align-items-center bg-black">
-                    {/* ventana del menu principal */}
-                  <div className={`bg-light py-md-4 rounded-4 my-5 d-flex flex-column justify-content-center ${ventana!==0?"invisible":""}`}>
+  
+      <div className="fondo-titulo  d-flex justify-content-center align-items-center bg-black flex-column flex h-100">
+            <div className="d-flex justify-content-around">
+                <button className="btn btn-light mx-3 my-sm-5 my-3" onClick={menuPrincipal} to="menu">Menu Principal</button>
+                <button className="btn btn-light mx-3 my-sm-5 my-3" onClick={()=>setVentana(6)} to="menu">Tutorial</button>
+                <button className="btn btn-light mx-3 my-sm-5 my-3" onClick={mostrarRanking} to="menu">Ranking</button>
+            </div>
+          <div className="d-flex justify-content-center align-items-center">
+{/* ventana del menu principal */}
+                  <div className={`w-100 fondo-menu-principal bg-light py-md-4 rounded-4 mt-3 d-flex flex-column justify-content-center ${ventana!==0?"invisible":""}`}>
                       <h6 className="ms-5 mt-3 ">Select Theme</h6>
                       <div className="row-12 d-flex mb-md-3 mb-sm-1">
                           <div className="col-6  d-flex justify-content-center">
@@ -532,7 +532,7 @@ return (
                           </div>
                           <div className="col-6 d-flex justify-content-center">
                               <button className={theme==="icons"?"boton-game-theme1 rounded-5 px-md-5 w-75":"boton-game-theme2 rounded-5 px-md-5 w-75"} 
-                                      value="icons" onClick={handleSelectTheme}>Icons</button>
+                                      value="icons" onClick={handleSelectTheme}>Pokemons</button>
                           </div>
                       </div>
 
@@ -575,34 +575,35 @@ return (
                   
           </div>
           
-            {/* ventana del juego */}
-            <div className={`bg-light py-1 rounded-4 my-5 d-flex flex-column justify-content-center w-75 ${ventana!==1?"invisible":""}`}>
+{/* ventana del juego */}
+            <div className={`text-light py-1 rounded-4 mt-3 d-flex flex-column justify-content-center w-75 border ${ventana!==1?"invisible":""}`}>
                 <div className="d-flex justify-content-beetwen p-md-5 p-2  row-12">
-                        <h4 className="col-sm-1 col-xs-4">memory</h4>
+                        <h5 className="col-sm-1 col-xs-4">PokeMemory</h5>
                         
                         <div className="col-sm-5 col-xs-1">
                         </div>
                         <div className="col-sm-1 col-xs-3">
-                                <button className="rounded-5" onClick={handleRestart}>Restart</button>
+                                <button className="rounded-5 btn btn-warning border" onClick={handleRestart}>Restart</button>
                         </div>
                         <div className="col-sm-2">
                         </div>
                         <div className="col-sm-3 col-xs-4 px-1">
-                            <button className="rounded-5" onClick={menuPrincipal}>New Game</button>
+                            <button className="rounded-5 btn btn-warning border" onClick={menuPrincipal}>New Game</button>
                         </div>
                 </div>
                 
-                <div className={`align-self-center bg-black w-75 d-flex justify-content-center p-md-3 p-sm-2 flex-wrap rounded-5 ${grid==="4x4"?"":"w-100"}`}>
+                <div className={`align-self-center w-75 d-flex justify-content-center p-md-3 p-sm-2 flex-wrap rounded-5 fondo-botones ${grid==="4x4"?"":"w-100"}`}>
                     {tab1.map((item)=>
-                        <div className={`${grid==="4x4"?"col-3 d-flex justify-content-center px-lg-2 px-md-1 px-1 py-1":"col-2 py-1 px-1 "}`}>
-                            <button key={item.id} 
+                        <div key={"a"+item.id} className={`${grid==="4x4"?"col-3 d-flex justify-content-center px-lg-2 px-md-1 px-1 py-1":"col-2 py-1 px-1 "} `} onClick={handlePrimeraOpcion}>
+                            <button
                                     id={item.id}
                                     value={item.valor} 
-                                    className={`rounded-5  font-size ${grid==="4x4"?"w-100 py-lg-4 py-3":"w-100 py-lg-4 py-2"} ${item.boton} ${item.icon?item.icon:""}`} 
-                                    disabled={item.activo} 
-                                    onClick={handlePrimeraOpcion}
+                                    className={`fondo-boton bg-black rounded-circle font-size  ${grid==="4x4"?"w-100 py-lg-4 py-3":"w-100 py-lg-4 py-2"} ${item.boton}${theme==="numbers"?"-numero":""} ${item.icon?item.icon:""}`} 
+                                    style={item.boton==="boton-activo" && item.icon?{backgroundImage: `url(${item.icon})`, 
+                                    color: "rgba(251, 251, 251, 0)"}:{}}
+                                    disabled={item.activo}
                                     >
-                                    {item.number?item.valor:""}
+                                    {item.number?item.valor:1}
                                 </button>
                         </div>
                         )}
@@ -610,18 +611,24 @@ return (
                 </div>
 
                 <div className={`d-flex  ${players!==1?"justify-content-around":"justify-content-center"}`}>
-                {players!==1?jugadoresActivos.map((item)=><div key={item.player} 
-                        className={`${item.activo?"boton-start":"boton-game-theme2"} text-center px-lg-5 py-lg-3 px-md-3 px-sm-2 py-sm-1 py-md-2 rounded-3 my-2 d-flex flex-column`}>
+                {players!==1?jugadoresActivos.map((item)=>
+                    <div key={"b"+item.player} 
+                    className={`fondo-player ${item.activo?"boton-start ":"boton-game-theme2"} text-center px-lg-5 py-lg-3 px-md-3 px-sm-2 py-sm-1 py-md-2 rounded-3 my-2 d-flex flex-column`}
+                    style={{backgroundImage: `url(${item.avatar})`}}
+                    >
                         <h5>Player {item.player}</h5>
                         <h1>{item.puntaje}</h1>
-                        </div>)
+                    </div>)
                 :<>
-                    <div className={`boton-game-theme2 mx-3 px-md-5 px-3 py-2 align-self-center rounded-1 my-3 d-flex flex-column`}>
+                    <div className={`text-black bg-light mx-3 px-md-5 px-3 py-2 align-self-center rounded-1 my-3 d-flex flex-column`}>
                         <h3>Tiempo</h3>
                          <h1 className="align-self-center">{tiempoJuego}</h1>
                     </div>
                     {jugadoresActivos.map((item)=>
-                        <div key={item.player} className={`boton-game-theme2 mx-3 px-md-5 px-3 py-2  rounded-1 my-3 d-flex flex-column`}>
+                        <div key={"c"+item.player} 
+                        className={`fondo-player mx-3 px-md-5 px-3 py-2  rounded-1 my-3 d-flex flex-column`}
+                        style={{backgroundImage: `url(${item.avatar})`}}
+                        >
                             <h3>moves</h3>
                             <h1 className="align-self-center">{item.puntaje}</h1>
                         </div>
@@ -630,12 +637,12 @@ return (
                 </div>
 
             </div>
-                {/* ventana de resultados multijugador */}
-            <div className={`bg-light text-black d-flex flex-column px-md-5 px-1 py-md-4 py-1 w-md-50 rounded-4 my-5 align-items-center ${ventana!==2?"invisible":""}`}>
+{/* ventana de resultados multijugador */}
+            <div className={`fondo-multijugador text-black d-flex flex-column px-md-5 px-1 py-md-4 py-1 w-md-50 rounded-4 my-5 align-items-center ${ventana!==2?"invisible":""}`}>
                 {tablaPuntuacion[0]?<h1 className="py-4">Player {tablaPuntuacion[0].player} Wins!</h1>:""}
                         <h6 className="mb-4">Game Over! Here are the results...</h6>
                 {tablaPuntuacion.map((item,index)=>
-                        <div key={item.player} className={`row-col-12 my-2 align-items-center rounded-4 w-100 p-2 d-flex justify-content-between ${index===0?"bg-black text-light":" bg-secondary text-dark"}`}>
+                        <div key={"d"+item.player} className={`row-col-12 my-2 align-items-center rounded-4 w-100 p-2 d-flex justify-content-between ${index===0?"bg-black text-light":" bg-secondary text-dark"}`}>
                             <div className="col-5">
                                     <h5>Player {" "+item.player} {index===0?" (Winner!)":""}</h5>
                             </div>
@@ -651,8 +658,8 @@ return (
                         </div>
                 </div>
             </div>
-                    {/* ventana resultados un jugador y guarda record */}
-            <div className={`bg-light text-black d-flex flex-column px-md-5 px-1 py-md-4 py-1 w-md-50 rounded-4 my-5 align-items-center ${ventana!==3?"invisible":""}`}>
+{/* ventana resultados un jugador y guarda record */}
+            <div className={`fondo-multijugador text-black d-flex flex-column px-md-5 px-1 py-md-4 py-1 w-md-50 rounded-4 my-5 align-items-center ${ventana!==3?"invisible":""}`}>
                         <h6 className="mb-4">Game Over! Here is your Time...</h6>
 
                         <div className={`row-col-12 my-2 align-items-center rounded-4 w-100 p-2 d-flex justify-content-center bg-black text-light`}>
@@ -663,7 +670,7 @@ return (
                         {agregarNuevoRecord?<>
                             <h6>Do you want add your new record?</h6>
                             <input maxLength={12} type="text" className="input-group rounded-3" name="nombre" value={nombre} onChange={handleNombre} placeholder="Ingresa tu nombre"/>
-                            <button className="btn btn-outline-dark rounded-5" onClick={handleAddRecord}>Add</button>
+                            <button className="btn btn-success rounded-5" onClick={handleAddRecord}>Add</button>
                         </>
                         :""}
 
@@ -676,15 +683,15 @@ return (
                         </div>
                 </div>
             </div>
-                        {/* ventana de ranking */}
-            <div className={`bg-light text-black d-flex flex-column px-md-5 px-1 py-md-4 py-1 w-md-50 rounded-4 my-5 align-items-center ${ventana!==4?"invisible":""}`}>
+{/* ventana de ranking */}
+            <div className={`fondo-ranking text-black d-flex flex-column px-md-5 px-1 py-md-4 py-1 w-md-50 rounded-4 my-5 align-items-center ${ventana!==4?"invisible":""}`}>
                         <h1 className="mb-4">Ranking...</h1>
                         
                         <h3 className="align-self-start">4x4</h3>  
                         <div className={`row-col-12 my-2 align-items-center rounded-4 w-100 p-2 d-flex  bg-black text-light flex-column`}>
                                {ranking.map((item,index)=>
-                                        <div className={`d-flex justify-content-between w-100 align-items-center`}>
-                                            <h5 key={item.id}>{index+1+". "}{item.nombre}</h5>
+                                        <div key={"e"+item.id} className={`d-flex justify-content-between w-100 align-items-center`}>
+                                            <h5>{index+1+". "}{item.nombre}</h5>
                                             <h6>{item.tiempo+"  "}s</h6>
                                         </div>                                    
                                )}
@@ -695,8 +702,8 @@ return (
                         <div className={`row-col-12 my-2 align-items-center rounded-4 w-100 p-2 d-flex  bg-black text-light flex-column`}>
   
                                 {ranking2.map((item, index)=>
-                                        <div className={`d-flex justify-content-between w-100 align-items-center`}>
-                                            <h5 key={item.id}>{index+1+". "}{item.nombre}</h5>
+                                        <div key={"f"+item.id} className={`d-flex justify-content-between w-100 align-items-center`}>
+                                            <h5>{index+1+". "}{item.nombre}</h5>
                                             <h6>{item.tiempo+"  "}s</h6>
                                         </div>                    
                                 )}                              
@@ -711,8 +718,8 @@ return (
                         </div>
                 </div>
             </div>
-                            {/* ventana de game over cuando termina el tiempo */}
-            <div className={`bg-light text-black d-flex flex-column px-md-5 px-1 py-md-4 py-1 w-md-50 rounded-4 my-5 align-items-center ${ventana!==5?"invisible":""}`}>
+{/* ventana de game over cuando termina el tiempo */}
+            <div className={`fondo-multijugador text-black d-flex flex-column px-md-5 px-1 py-md-4 py-1 w-md-50 rounded-4 my-5 align-items-center ${ventana!==5?"invisible":""}`}>
                         <h1 className="mb-4">Game Over..</h1>
 
                 <div className="row-col-12 d-flex justify-content-around">
@@ -735,7 +742,7 @@ return (
 
 
       </div>
-  </>
+  
 )
 }
 
